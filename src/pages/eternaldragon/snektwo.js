@@ -362,7 +362,7 @@ if(globals.overheadMap){
   //   scoreMesh.position.copy(scorePos)
   // })
 
-  const pathBlock = new THREE.BoxGeometry(1.75, 10, 10)
+  const pathBlock = new THREE.BoxGeometry(10, 10, 10)
   const pathmaterial = new THREE.MeshPhongMaterial({
     color: 0x00ff00,
     opacity: 0.5,
@@ -483,15 +483,17 @@ const renderTarget = new THREE.WebGLRenderTarget(size.width, size.height)
     if (distanceVector(lastPathBlock, user.position) > 2 && state.user.alive) {
       const pathHolder = new THREE.Mesh(pathBlock, pathmaterial)
       pathHolder.position.set(
-        user.position.x - 2 * lookvector.x,
-        user.position.y - 2 * lookvector.y,
-        user.position.z - 2 * lookvector.z
+        user.position.x - 5 * lookvector.x,
+        user.position.y - 5 * lookvector.y,
+        user.position.z - 5 * lookvector.z
       )
-      if (!camControls.enabled) {
-        pathHolder.quaternion.copy(mycamera.quaternion)
-      } else {
-        pathHolder.quaternion.copy(user.quaternion)
-      }
+
+      pathHolder.quaternion.copy(user.quaternion)
+      // if (!camControls.enabled) {
+      //   pathHolder.quaternion.copy(mycamera.quaternion)
+      // } else {
+      //   pathHolder.quaternion= pathHolder.quaternion.copy(user.orientation)
+      // }
       lastBlock = pathHolder
       scene.add(pathHolder)
       pathHolders.push(pathHolder)
