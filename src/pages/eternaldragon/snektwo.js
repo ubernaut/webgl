@@ -34,7 +34,7 @@ const globals = {
 const state = {
   user: {
     alive: true,
-    velocity: 5 / 10,
+    velocity: 2.5 / 10,
   },
   score: {
     value: 0,
@@ -530,7 +530,7 @@ const renderTarget = new THREE.WebGLRenderTarget(size.width, size.height)
           beep(globals.context, 600,100,20)
         }
         eggs.splice(eggs.indexOf(egg.object), 1)
-        state.blockCount += 1
+        state.blockCount *= 2
         state.user.velocity += 0.06
       }
     }
