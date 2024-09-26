@@ -266,7 +266,7 @@ export const init = ({ canvas, container }) => {
 
   user.add(camera)
   scene.add(user)
-  user.position.y = 2
+  user.position.y = 128
 
   const camControls = createControls(user, canvas)
 
